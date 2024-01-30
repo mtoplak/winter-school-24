@@ -55,7 +55,6 @@ jobs:
   static_code_analysis_backend:
     name: SonarCloud Backend Analysis
     runs-on: ubuntu-latest
-    needs: [build_frontend]
     steps:
       - uses: actions/checkout@v3
         with:
