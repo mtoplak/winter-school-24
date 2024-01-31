@@ -1,1 +1,1 @@
-# winter-school-24
+# Winter School 24

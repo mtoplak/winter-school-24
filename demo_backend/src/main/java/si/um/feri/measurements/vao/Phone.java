@@ -6,7 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import si.um.feri.measurements.dto.InternetDTO;
 
 @Entity
 @Data
@@ -20,10 +19,18 @@ public class Phone {
 
     private float cena;
 
-    public Phone(Long id, String naziv, float cena) {
-        this.id = id;
+    private float prenosPodatkov;
+
+    private int steviloMinut;
+
+    private String hitrost;
+
+    public Phone(String naziv, float cena, float prenosPodatkov, int steviloMinut, String hitrost) {
         this.naziv = naziv;
         this.cena = cena;
+        this.prenosPodatkov = prenosPodatkov;
+        this.steviloMinut = steviloMinut;
+        this.hitrost = hitrost;
     }
 
     public Long getId() {
@@ -50,13 +57,4 @@ public class Phone {
         this.cena = cena;
     }
 
-    public Phone(Phone dto) {
-        this.id = dto.getId();
-        this.cena= dto.getCena();
-        this.naziv = dto.getNaziv();
-    }
-
-    public InternetDTO toDto() {
-        return new InternetDTO(id, naziv, cena);
-    }
 }

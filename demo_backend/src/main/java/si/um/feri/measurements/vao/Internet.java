@@ -1,9 +1,6 @@
 package si.um.feri.measurements.vao;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,9 +16,22 @@ public class Internet {
 
     private float cena;
 
-    public Internet(Long id, String naziv, float cena) {
+    private String hitrost;
+
+    private String dodatno;
+
+    public Internet(Long id, String naziv, float cena, String hitrost, String dodatno) {
         this.id = id;
         this.naziv = naziv;
         this.cena = cena;
+        this.hitrost = hitrost;
+        this.dodatno = dodatno;
+    }
+
+    public Internet(Internet dto) {
+        this.naziv = dto.getNaziv();
+        this.cena = dto.getCena();
+        this.hitrost = dto.getHitrost();
+        this.dodatno = dto.getDodatno();
     }
 }
